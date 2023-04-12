@@ -8,6 +8,7 @@ x, y, z = symbols('x y z',real=True)
 #Pido al usuario que ingrese la función en términos de x,y,z
 f = x*y**2/z
 
+#Valores de x,y,z y errores relativos (cotas)
 x1 = 2
 x2 = 3
 x3 = 1
@@ -34,4 +35,19 @@ fun_z = lambdify([x,y,z],derivada_z)
 
 print(f"{derivada_x} y en el punto {x1}, {x2}, {x3} es: {fun_x(x1,x2,x3)}")
 print(f"{derivada_y} y en el punto {x1}, {x2}, {x3} es: {fun_y(x1,x2,x3)}")
-print(f"{derivada_z} y en el punto {x1}, {x2}, {x3} es: {fun_z(x1,x2,x3)}")
+print(f"{derivada_z} y en el punto {x1}, {x2}, {x3} es: {abs(fun_z(x1,x2,x3))}")
+
+if (abs(fun_x(x1,x2,x3))*dx) > (abs(fun_y(x1,x2,x3))*dy):
+    if (abs(fun_x(x1,x2,x3))*dx) > (abs(fun_z(x1,x2,x3))*dz):
+        mayor = 'X'
+    else:
+        mayor = 'Z'
+else:
+    if (abs(fun_y(x1,x2,x3))*dy) > (abs(fun_z(x1,x2,x3))*dz):
+        mayor = 'Y'
+    else:
+        mayor = 'Z'
+
+
+
+print(f"{mayor} tiene mayor incidencia en el error en w.")
