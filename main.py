@@ -1,6 +1,14 @@
 import derivada
 import numpy as np
 from sympy import *
+#rom tkinter import *
+#from tkinter import ttk
+import tkinter
+#TKINTER
+#root = Tk()
+#frm = ttk.Frame(root,padding=10)
+#frm.grid()
+#frm.grid()
 
 x, y, z = symbols('x y z',real=True)
 
@@ -35,7 +43,25 @@ fun_z = lambdify([x,y,z],derivada_z)
 
 print(f"{derivada_x} y en el punto {x1}, {x2}, {x3} es: {fun_x(x1,x2,x3)}")
 print(f"{derivada_y} y en el punto {x1}, {x2}, {x3} es: {fun_y(x1,x2,x3)}")
-print(f"{derivada_z} y en el punto {x1}, {x2}, {x3} es: {abs(fun_z(x1,x2,x3))}")
+print(f"{derivada_z} y en el punto {x1}, {x2}, {x3} es: {fun_z(x1,x2,x3)}")
+
+#Implementando TKINTER
+ventana = tkinter.Tk()
+ventana.geometry("400x300")
+ventana.mainloop()
+
+
+
+
+
+#ttk.Label(frm, text=f"{derivada_x} y en el punto {x1}, {x2}, {x3} es: {fun_x(x1,x2,x3)}").grid(column=0,row=0)
+#ttk.Label(frm, text=f"{derivada_y} y en el punto {x1}, {x2}, {x3} es: {fun_y(x1,x2,x3)}").grid(column=0,row=0)
+#ttk.Label(frm, text=f"{derivada_z} y en el punto {x1}, {x2}, {x3} es: {fun_z(x1,x2,x3)}").grid(column=0,row=0)
+#ttk.Button(frm, text="Quit", command=root.destroy).grid(column=1, row=0)
+#btn = ttk.Button()
+#print(set(btn.configure().keys()) - set(frm.configure().keys()))
+#root.mainloop()
+
 
 if (abs(fun_x(x1,x2,x3))*dx) > (abs(fun_y(x1,x2,x3))*dy):
     if (abs(fun_x(x1,x2,x3))*dx) > (abs(fun_z(x1,x2,x3))*dz):
