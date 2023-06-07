@@ -23,4 +23,3 @@ def calcular_df_dz(funcion):
     
     return df_dz
     
-
