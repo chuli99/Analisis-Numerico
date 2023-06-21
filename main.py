@@ -59,7 +59,9 @@ def opcion1():
     print("Ingrese la funcion en terminos de x,y,z:")
     #f = input()
     f = x*y**2/z
+    #print(type(f))
     #f = 5*x*y - x*cos(z) + x**2 + z**8*y**2
+    
     #Implementar regex para validar la funcion en un futuro
     print(f)
 
@@ -113,11 +115,8 @@ def opcion1():
         print("Calculando error de la funcion...")
         time.sleep(2)
         print("La funcion tiene un error de:")
-        print((fun_x(x1,x2,x3)*dx)+(fun_y(x1,x2,x3)*dy)+(fun_z(x1,x2,x3)*dz))
+        print((abs(fun_x(x1,x2,x3))*dx)+(abs(fun_y(x1,x2,x3))*dy)+(abs(fun_z(x1,x2,x3))*dz))
     
-        #print(f"{derivada_x} y en el punto {x1}, {x2}, {x3} es: {fun_x(x1,x2,x3)}")
-        #print(f"{derivada_y} y en el punto {x1}, {x2}, {x3} es: {fun_y(x1,x2,x3)}")
-        #print(f"{derivada_z} y en el punto {x1}, {x2}, {x3} es: {fun_z(x1,x2,x3)}")
     else:
         print("Ingrese los valores nuevamente")
         opcion1()
@@ -183,9 +182,9 @@ def opcion2():
         fun_z = lambdify([x,y,z],derivada_z)
         print("Calculando error de las variables...")
         time.sleep(2)
-        print(f"La variable x tiene un error de: {(fun_x(x1,x2,x3)*dx)}")
-        print(f"La variable x tiene un error de: {(fun_y(x1,x2,x3)*dy)}")
-        print(f"La variable x tiene un error de: {(fun_z(x1,x2,x3)*dz)}")
+        print(f"La variable x tiene un error de: {abs((fun_x(x1,x2,x3))*dx)}")
+        print(f"La variable x tiene un error de: {abs((fun_y(x1,x2,x3))*dy)}")
+        print(f"La variable x tiene un error de: {abs((fun_z(x1,x2,x3))*dz)}")
      
     else:
         print("Ingrese los valores nuevamente")
